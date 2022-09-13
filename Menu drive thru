@@ -1,0 +1,39 @@
+import csv,random
+
+if __name__ == "__main__":
+    menu = []
+
+    with open("menu.csv","r") as f:
+        csv_read = csv.reader(f)
+        for i in csv_read:
+            menu.append(i)
+
+    for i in menu:
+        print(f"{i[0]}: {i[1]} - Rs {i[2]}")
+
+    while True :
+        a = int(input("How many items would you like to order : "))
+        d = 0
+        for i in range(a):
+            b = input("Enter Item No. : ")
+            c = int(input("Enter Qty : "))
+
+            for j in menu:
+                if j[0] == b:
+                    d += int(j[2]) * c
+
+        print("Final Bill Amount :", d)
+        print("Payment method","\n","a) Cash \t b) Card \t c) Upi")
+        order_no = random.randint(0,50) 
+        print("Order No.",order_no)
+        print("Please collect your Bill  ")
+        print("You will recieve your order from next booth")
+"""# creating menu
+list_header = ["Sno.","Item","Cost"]
+list_menu = [[1,"Veg.Burger",,60],[2,"Nonveg.Burger",80],[3,"Panner Wrap",100],[4,"Chicken Wrap",110],[5,"Veg.Tacos",100],[6,"Nonveg.Tacos",110],[7,"Salted Fries",50],[8,"Loaded Fries",80],[9,"Chicken Bucket",100],[10,"Cheese Sticks",75],[11,"Pizza Pocket",80],[12,"Soft Drink",40],[13,"Water",20],[14,"Vanilla Icecream",50],[15,"Chocolate Icecream",60]]
+with open("menu.csv","w") as f:
+    csv_w = csv.writer(f)
+    csv_w.writerow(list_header)
+    csv_w.writerows(list_menu)"""
+
+list_header = ["Sno.","Item","Cost"]
